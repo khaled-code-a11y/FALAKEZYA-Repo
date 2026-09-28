@@ -306,7 +306,7 @@ FALAKEZYA-Repo/
 
 <div align="center">
 
-**Made with ❤️ by FALAKEZYA Team**
+**Made with ❤️ by Khaled Adel**
 
 *Empowering minds through physics and astrophysics since 2018*
 
