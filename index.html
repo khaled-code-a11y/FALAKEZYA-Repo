@@ -2279,7 +2279,24 @@
           addTouchOrClickListener(mobileToggle, toggleMenu);
 
           document.querySelectorAll('.nav-link').forEach(function(link) {
-            addTouchOrClickListener(link, closeMenu);
+            addTouchOrClickListener(link, function(e) {
+              var href = link.getAttribute('href');
+              if (href && href.startsWith('#')) {
+                e.preventDefault();
+                var targetId = href.substring(1);
+                var targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                  var headerOffset = 76;
+                  var elementPosition = targetElement.getBoundingClientRect().top;
+                  var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }
+              closeMenu();
+            });
           });
 
           document.addEventListener('click', function(e) {
